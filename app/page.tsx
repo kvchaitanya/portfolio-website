@@ -96,7 +96,7 @@ export default function Home() {
               <div className="text-sm">
                 <a href="#experience" className="nav-link text-muted-foreground hover:text-black transition-colors flex items-center gap-3" data-section="experience">
                   <span className="w-6 h-6 rounded-full border border-border flex items-center justify-center text-xs nav-number">2</span>
-                  Insights
+                  Insights (Coming Soon)
                 </a>
               </div>
             </nav>
@@ -186,7 +186,7 @@ export default function Home() {
                       </div>
                       <div className="flex-1">
                         <span className="inline-block px-3 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full mb-2">
-                          Web Development
+                          Data Science
                         </span>
                         <h3 className="font-semibold text-lg mb-2 group-hover/item:text-blue-600 transition-colors">
                           DC Crime Insights Web Application
@@ -200,125 +200,109 @@ export default function Home() {
                 </a>
 
                 {/* Project 2 - AI/ML */}
-                <div className="group/item cursor-pointer">
+                <a href="https://github.com/kvchaitanya/Parking-Demand-Prediction" target="_blank" rel="noopener noreferrer" className="group/item cursor-pointer block">
                   <div className="bg-card rounded-lg p-6 border border-border transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-green-200 hover:z-10 relative group-hover/projects:opacity-50 hover:!opacity-100 group-hover/item:scale-105">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex-shrink-0 flex items-center justify-center">
-                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
+                      <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden">
+                        <img 
+                          src="/image copy 2.png" 
+                          alt="Urban Parking Demand Hotspot Detection"
+                          className="w-full h-full object-cover rounded-lg"
+                        />
                       </div>
                       <div className="flex-1">
                         <span className="inline-block px-3 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full mb-2">
-                          AI/Machine Learning
+                          Machine Learning
                         </span>
                         <h3 className="font-semibold text-lg mb-2 group-hover/item:text-green-600 transition-colors">
-                          Large Language Model for Code Generation
+                          Urban Parking Demand Hotspot Detection & Surge Prediction
                         </h3>
                       </div>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Fine-tuned 7B parameter model for automated code generation with 92% functional correctness on HumanEval benchmark. Implemented advanced training techniques and optimization strategies.
+                    Analyzed Seattle parking, weather, and map data using Python (pandas, scikit-learn, geopandas) to identify demand hotspots and predict rate surges, enabling actionable insights for urban planning
                     </p>
                   </div>
-                </div>
+                </a>
 
                 {/* Project 3 - Computer Vision */}
-                <div className="group/item cursor-pointer">
+                <a href="https://github.com/kvchaitanya/MyCoverKraft" target="_blank" rel="noopener noreferrer" className="group/item cursor-pointer block">
                   <div className="bg-card rounded-lg p-6 border border-border transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-purple-200 hover:z-10 relative group-hover/projects:opacity-50 hover:!opacity-100 group-hover/item:scale-105">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex-shrink-0 flex items-center justify-center">
-                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>
+                      <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden">
+                        <img 
+                          src="/image copy 3.png" 
+                          alt="LLM-Powered Document Automation Platform"
+                          className="w-full h-full object-cover rounded-lg"
+                        />
                       </div>
                       <div className="flex-1">
                         <span className="inline-block px-3 py-1 text-xs font-medium bg-purple-100 text-purple-800 rounded-full mb-2">
-                          Computer Vision
+                          Language Models
                         </span>
                         <h3 className="font-semibold text-lg mb-2 group-hover/item:text-purple-600 transition-colors">
-                          Real-time Object Detection Pipeline
+                          LLM-Powered Document Automation Platform
                         </h3>
                       </div>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Production-ready computer vision system processing 10M+ images daily with sub-100ms latency using optimized YOLO architecture. Deployed on cloud infrastructure with auto-scaling capabilities.
+                  Orchestrated a modular Python Streamlit application that leverages spaCy, scikit-learn, and PyPDF2 for NLP-driven parsing, vectorized keyword extraction, and semantic analysis of resumes and job descriptions, integrating dynamic prompt engineering to auto-generate targeted, ATS-optimized cover letters through a secure and interactive web interface
                     </p>
                   </div>
-                </div>
+                </a>
 
                 {/* Project 4 - Distributed Systems */}
-                <div className="group/item cursor-pointer">
+                                {/* Project 4 - Distributed Systems */}
+                <a href="https://github.com/kvchaitanya/Employee-Salary-Prediction" target="_blank" rel="noopener noreferrer" className="group/item cursor-pointer block">
                   <div className="bg-card rounded-lg p-6 border border-border transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-orange-200 hover:z-10 relative group-hover/projects:opacity-50 hover:!opacity-100 group-hover/item:scale-105">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex-shrink-0 flex items-center justify-center">
-                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                        </svg>
+                      <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden">
+                        <img 
+                          src="/image.png" 
+                          alt="Employee Salary Prediction System"
+                          className="w-full h-full object-cover rounded-lg"
+                        />
                       </div>
                       <div className="flex-1">
                         <span className="inline-block px-3 py-1 text-xs font-medium bg-orange-100 text-orange-800 rounded-full mb-2">
-                          Distributed Systems
+                          Data Analysis
                         </span>
                         <h3 className="font-semibold text-lg mb-2 group-hover/item:text-orange-600 transition-colors">
-                          Federated Learning Framework
+                          Employee Salary Prediction System
                         </h3>
                       </div>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Privacy-preserving distributed ML system enabling collaborative training across 1000+ edge devices without data sharing. Implemented secure aggregation protocols and differential privacy.
+                      Engineered an end-to-end ML pipeline on Kaggle's Employee Earnings dataset using Python (pandas, scikit-learn, statsmodels), applying feature engineering, PCA, and regression/classification models (Random Forest, SVM, Neural Networks); achieved up to 89% accuracy with Polynomial Kernel SVM for salary prediction.
                     </p>
                   </div>
-                </div>
+                </a>
 
                 {/* Project 5 - Data Science */}
-                <div className="group/item cursor-pointer">
+                <a href="https://github.com/kvchaitanya/NovaClinic" target="_blank" rel="noopener noreferrer" className="group/item cursor-pointer block">
                   <div className="bg-card rounded-lg p-6 border border-border transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-indigo-200 hover:z-10 relative group-hover/projects:opacity-50 hover:!opacity-100 group-hover/item:scale-105">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg flex-shrink-0 flex items-center justify-center">
-                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                        </svg>
+                      <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden">
+                        <img 
+                          src="/image copy.png" 
+                          alt="Nova Clinic Hospital Management Platform"
+                          className="w-full h-full object-cover rounded-lg"
+                        />
                       </div>
                       <div className="flex-1">
                         <span className="inline-block px-3 py-1 text-xs font-medium bg-indigo-100 text-indigo-800 rounded-full mb-2">
-                          Data Science
+                          Web Development
                         </span>
                         <h3 className="font-semibold text-lg mb-2 group-hover/item:text-indigo-600 transition-colors">
-                          Financial Risk Assessment Dashboard
+                          Nova Clinic - Hospital Management Platform
                         </h3>
                       </div>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Built comprehensive risk analytics platform using Python, pandas, and Plotly. Features real-time portfolio monitoring, Monte Carlo simulations, and automated risk reporting for institutional clients.
+                      Built a full-stack clinic management web app using Python, JavaScript, HTML, and SQL, featuring user, receptionist, and admin portals with RESTful backend and relational database for handling appointments, doctors, slots, and authentication workflows.
                     </p>
                   </div>
-                </div>
-
-                {/* Project 6 - Mobile Development */}
-                <div className="group/item cursor-pointer">
-                  <div className="bg-card rounded-lg p-6 border border-border transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-pink-200 hover:z-10 relative group-hover/projects:opacity-50 hover:!opacity-100 group-hover/item:scale-105">
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-lg flex-shrink-0 flex items-center justify-center">
-                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a1 1 0 001-1V4a1 1 0 00-1-1H8a1 1 0 00-1 1v16a1 1 0 001 1z" />
-                        </svg>
-                      </div>
-                      <div className="flex-1">
-                        <span className="inline-block px-3 py-1 text-xs font-medium bg-pink-100 text-pink-800 rounded-full mb-2">
-                          Mobile Development
-                        </span>
-                        <h3 className="font-semibold text-lg mb-2 group-hover/item:text-pink-600 transition-colors">
-                          Cross-Platform Health Tracker
-                        </h3>
-                      </div>
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      React Native application with AI-powered health insights, wearable device integration, and personalized recommendations. Features offline-first architecture and real-time sync capabilities.
-                    </p>
-                  </div>
-                </div>
+                </a>
               </div>
             </section>
 

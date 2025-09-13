@@ -38,7 +38,7 @@ export default function Publications() {
         <div className="space-y-16">
           {/* Publications */}
           <section>
-            <h2 className="text-xl font-medium mb-8">Publications</h2>
+            <h2 className="text-xl font-medium mb-8 underline decoration-2 underline-offset-4">Publications</h2>
 
             <div className="space-y-8">
 
@@ -114,7 +114,7 @@ export default function Publications() {
 
           {/* Talks */}
           <section>
-            <h2 className="text-xl font-medium mb-8">Invited Talks</h2>
+            <h2 className="text-xl font-medium mb-8 underline decoration-2 underline-offset-4">Invited Talks</h2>
 
             <div className="space-y-6">
               <div>
