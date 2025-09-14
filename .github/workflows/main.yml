@@ -48,10 +48,8 @@ jobs:
       - name: Deploy build to persistent folder
         run: |
           mkdir -p ~/portfolio-website
-          # Remove old files in persistent folder
-          rm -rf ~/portfolio-website/*
-          # Copy current build to persistent folder
-          cp -r ./* ~/portfolio-website/
+          # Remove old files in persistent folder but keep .pm2 config
+          rsync -a --delete --exclude='.pm2' ./ ~/portfolio-website/
 
       # ------------------------------
       # START PROJECT WITH PM2
