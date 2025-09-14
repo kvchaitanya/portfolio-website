@@ -22,13 +22,11 @@ export default function CV() {
         </div>
 
         {/* PDF Viewer */}
-        <div className="w-full h-[60vh] lg:h-screen bg-white rounded-lg shadow-lg border border-border overflow-hidden flex justify-center items-stretch">
+        <div className="w-full h-[60vh] lg:h-screen bg-white rounded-lg shadow-lg border border-border overflow-hidden">
           <iframe
             src="https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Chaitanya-Resume.pdf"
-            className="w-full h-full" 
+            className="w-full h-full"
             title="Venkata Chaitanya CV"
-            style={{ minWidth: 0, overflowX: 'hidden', overflowY: 'auto', border: 'none' }}
-            scrolling="yes"
           />
         </div>
 

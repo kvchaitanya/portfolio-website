@@ -1,56 +1,7 @@
 export default function Publications() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <header className="border-b border-border/40 sticky top-0 bg-background/80 backdrop-blur-md z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-6">
-          <nav className="flex items-center justify-between">
-            <div className="text-base lg:text-lg font-medium">
-              <a href="/" className="hover:text-muted-foreground transition-colors">
-                Hi! I'm Chaitanya
-              </a>
-            </div>
-            <div className="hidden md:flex items-center space-x-6 lg:space-x-8 text-sm">
-              <a href="/publications" className="text-foreground font-medium">
-                Publications & Talks
-              </a>
-              <a href="/hackathons" className="hover:text-muted-foreground transition-colors">
-                Hackathons
-              </a>
-              <a href="/cv" className="hover:text-muted-foreground transition-colors">
-                CV
-              </a>
-              <a href="https://calendly.com/chaitanya4599/30min" target="_blank" rel="noopener noreferrer" className="hover:text-muted-foreground transition-colors">
-                Meet Me
-              </a>
-            </div>
-            {/* Mobile menu button */}
-            <div className="md:hidden">
-              <button className="text-foreground hover:text-muted-foreground">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              </button>
-            </div>
-          </nav>
-          {/* Mobile menu */}
-          <div className="md:hidden mt-4 pb-4 border-t border-border/40">
-            <div className="flex flex-col space-y-3 pt-4">
-              <a href="/publications" className="text-foreground font-medium text-sm">
-                Publications & Talks
-              </a>
-              <a href="/hackathons" className="hover:text-muted-foreground transition-colors text-sm">
-                Hackathons
-              </a>
-              <a href="/cv" className="hover:text-muted-foreground transition-colors text-sm">
-                CV
-              </a>
-              <a href="https://calendly.com/chaitanya4599/30min" target="_blank" rel="noopener noreferrer" className="hover:text-muted-foreground transition-colors text-sm">
-                Meet Me
-              </a>
-            </div>
-          </div>
-        </div>
-      </header>
+
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16">
         {/* <div className="mb-12">
