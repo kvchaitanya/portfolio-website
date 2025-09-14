@@ -49,6 +49,7 @@ jobs:
       - name: Deploy build to persistent folder
         run: |
           mkdir -p ~/portfolio-website
+          # Remove old files but keep .pm2 configuration
           rsync -a --delete --exclude='.pm2' ./ ~/portfolio-website/
 
       # ------------------------------
@@ -61,8 +62,11 @@ jobs:
       - name: Start project with PM2
         run: |
           cd ~/portfolio-website
+          # Stop existing process if any
           pm2 delete portfolio || true
+          # Start project using PORT from .env
           pm2 start npm --name portfolio -- start
+          # Save PM2 config and setup auto-restart on boot
           pm2 save
           pm2 startup systemd -u ubuntu --hp /home/ubuntu || true
 
@@ -74,12 +78,13 @@ jobs:
           PORT="${{ secrets.PORT }}"
           CONFIG_FILE="/tmp/portfolio-nginx.conf"
 
-          cat > $CONFIG_FILE <<EOL
+          # Generate Nginx config dynamically
+          cat > $CONFIG_FILE <<'EOL'
 # HTTP redirect
 server {
     listen 80;
     server_name chaitanya.cerbq.com;
-    return 301 https://\$server_name\$request_uri;
+    return 301 https://$server_name$request_uri;
 }
 
 # HTTPS server
@@ -95,19 +100,20 @@ server {
     ssl_prefer_server_ciphers off;
 
     location / {
-        proxy_pass http://localhost:${PORT};
+        proxy_pass http://localhost:'"$PORT"';
         proxy_http_version 1.1;
-        proxy_set_header Upgrade \$http_upgrade;
+        proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
-        proxy_set_header Host \$host;
-        proxy_set_header X-Real-IP \$remote_addr;
-        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto \$scheme;
-        proxy_cache_bypass \$http_upgrade;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_cache_bypass $http_upgrade;
     }
 }
 EOL
 
+          # Copy to appropriate Nginx config folder
           if [ -d "/etc/nginx/conf.d" ]; then
             sudo cp $CONFIG_FILE /etc/nginx/conf.d/portfolio.conf
           elif [ -d "/etc/nginx/sites-available" ]; then
@@ -118,8 +124,12 @@ EOL
             sudo cp $CONFIG_FILE /etc/nginx/conf.d/portfolio.conf
           fi
 
+          # Test and reload Nginx
           sudo nginx -t && sudo systemctl reload nginx || sudo service nginx reload || sudo nginx -s reload
 
+  # ------------------------------
+  # CLEANUP ARTIFACTS
+  # ------------------------------
   cleanup:
     runs-on: self-hosted
     needs: deploy
