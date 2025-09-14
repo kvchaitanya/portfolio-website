@@ -38,6 +38,7 @@ jobs:
         run: |
           touch .env
           echo "${{ secrets.PROD_PORTFOLIO_ENV }}" > .env
+          echo "PORT=${{ secrets.PORT }}" >> .env
 
       - name: Build project (React/Next.js)
         run: npm run build
@@ -48,7 +49,7 @@ jobs:
       - name: Deploy build to persistent folder
         run: |
           mkdir -p ~/portfolio-website
-          # Remove old files in persistent folder but keep .pm2 config
+          # Remove old files but keep .pm2 configuration
           rsync -a --delete --exclude='.pm2' ./ ~/portfolio-website/
 
       # ------------------------------
@@ -63,32 +64,67 @@ jobs:
           cd ~/portfolio-website
           # Stop existing process if any
           pm2 delete portfolio || true
-          # Start project
+          # Start project using PORT from .env
           pm2 start npm --name portfolio -- start
-          # Save PM2 configuration for auto-restart
+          # Save PM2 config and setup auto-restart on boot
           pm2 save
+          pm2 startup systemd -u ubuntu --hp /home/ubuntu || true
 
       # ------------------------------
       # NGINX CONFIGURATION
       # ------------------------------
-      - name: Find Nginx configuration directory
-        id: nginx-config
-        run: |
-          if [ -d "/etc/nginx/conf.d" ]; then
-            echo "CONFIG_PATH=/etc/nginx/conf.d/portfolio.conf" >> $GITHUB_ENV
-          elif [ -d "/etc/nginx/sites-available" ]; then
-            echo "CONFIG_PATH=/etc/nginx/sites-available/portfolio" >> $GITHUB_ENV
-          else
-            sudo mkdir -p /etc/nginx/conf.d
-            echo "CONFIG_PATH=/etc/nginx/conf.d/portfolio.conf" >> $GITHUB_ENV
-          fi
-
       - name: Configure Nginx for portfolio
         run: |
-          sudo cp ./nginx.conf $CONFIG_PATH
-          if [[ "$CONFIG_PATH" == "/etc/nginx/sites-available/portfolio" ]]; then
+          PORT="${{ secrets.PORT }}"
+          CONFIG_FILE="/tmp/portfolio-nginx.conf"
+
+          # Generate Nginx config dynamically with PORT
+          cat > $CONFIG_FILE <<EOL
+# HTTP redirect
+server {
+    listen 80;
+    server_name chaitanya.cerbq.com;
+    return 301 https://\$server_name\$request_uri;
+}
+
+# HTTPS server
+server {
+    listen 443 ssl http2;
+    server_name chaitanya.cerbq.com;
+
+    ssl_certificate /etc/ssl/certs/cerbq.com/fullchain.pem;
+    ssl_certificate_key /etc/ssl/private/cerbq.com.key;
+
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384;
+    ssl_prefer_server_ciphers off;
+
+    location / {
+        proxy_pass http://localhost:${PORT};
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade \$http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host \$host;
+        proxy_set_header X-Real-IP \$remote_addr;
+        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto \$scheme;
+        proxy_cache_bypass \$http_upgrade;
+    }
+}
+EOL
+
+          # Determine where to copy
+          if [ -d "/etc/nginx/conf.d" ]; then
+            sudo cp $CONFIG_FILE /etc/nginx/conf.d/portfolio.conf
+          elif [ -d "/etc/nginx/sites-available" ]; then
+            sudo cp $CONFIG_FILE /etc/nginx/sites-available/portfolio
             sudo ln -sf /etc/nginx/sites-available/portfolio /etc/nginx/sites-enabled/portfolio
+          else
+            sudo mkdir -p /etc/nginx/conf.d
+            sudo cp $CONFIG_FILE /etc/nginx/conf.d/portfolio.conf
           fi
+
+          # Test and reload Nginx
           sudo nginx -t && sudo systemctl reload nginx || sudo service nginx reload || sudo nginx -s reload
 
   # ------------------------------
