@@ -34,7 +34,7 @@ export default function CV() {
             <p className="text-muted-foreground">Data Analyst & Machine Learning Engineer</p>
           </div>
           <a
-            href="/cv.pdf"
+            href="https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Chaitanya-Resume.pdf"
             download="Venkata_Chaitanya_CV.pdf"
             className="px-6 py-3 bg-foreground text-background text-sm font-medium rounded-lg hover:bg-foreground/90 transition-colors flex items-center gap-2"
           >
@@ -48,7 +48,7 @@ export default function CV() {
         {/* PDF Viewer */}
         <div className="w-full h-screen bg-white rounded-lg shadow-lg border border-border overflow-hidden">
           <iframe
-            src="/cv.pdf"
+            src="https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Chaitanya-Resume.pdf"
             className="w-full h-full"
             title="Venkata Chaitanya CV"
           />
@@ -56,7 +56,7 @@ export default function CV() {
 
         {/* Fallback message */}
         <div className="mt-4 text-center text-sm text-muted-foreground">
-          <p>Can't see the PDF? <a href="/cv.pdf" className="text-foreground hover:underline" download="Venkata_Chaitanya_CV.pdf">Download it directly</a></p>
+          <p>Can't see the PDF? <a href="https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Chaitanya-Resume.pdf" className="text-foreground hover:underline" download="Venkata_Chaitanya_CV.pdf">Download it directly</a></p>
         </div>
       </div>
     </main>

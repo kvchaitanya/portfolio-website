@@ -124,6 +124,11 @@ export default function Publications() {
                   Delivered an oral technical presentation on infrastructure-scale machine learning systems for demand hotspot prediction and surge pricing,
                   deployed to optimize municipal resource allocation.
                 </p>
+                <div className="flex gap-4 text-sm mt-2">
+                  <a href="https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Urban+Transitions+2024.pdf" className="text-blue-500 hover:text-blue-400">
+                    📄 Slides
+                  </a>
+                </div>
               </div>
 
               <div>
@@ -132,6 +137,11 @@ export default function Publications() {
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Presented Ag Corp: Advancing Agriculture Communication in Virginia, a secure web platform integrating centralized information, real-time updates to deliver support for producers.
                 </p>
+                <div className="flex gap-4 text-sm mt-2">
+                  <a href="https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Agtech-Final-1.pdf" className="text-blue-500 hover:text-blue-400">
+                    📄 Slides
+                  </a>
+                </div>
               </div>
 
               <div>
@@ -142,6 +152,11 @@ export default function Publications() {
                   Exhibited computer vision, topic modeling, and LLM-driven research workflows at a national AI showcase, presenting scalable technical
                   solutions with direct impact on policy and industry adoption.
                 </p>
+                <div className="flex gap-4 text-sm mt-2">
+                  <a href="https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/AI-Expo-Slides-compressed.pdf" className="text-blue-500 hover:text-blue-400">
+                    📄 Slides
+                  </a>
+                </div>
               </div>
 
            
