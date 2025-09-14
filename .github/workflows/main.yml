@@ -1,0 +1,79 @@
+name: Deploy Portfolio on EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [22.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: |
+            package.json
+
+      # ------------------------------
+      # PROJECT SETUP
+      # ------------------------------
+      - name: Install project dependencies
+        run: npm install
+
+      - name: Create .env file
+        run: |
+          touch .env
+          echo "${{ secrets.PROD_PORTFOLIO_ENV }}" > .env
+
+      - name: Build project (if using React/Next.js)
+        run: npm run build
+
+      - name: Install PM2 globally if not available
+        run: |
+          which pm2 || npm install -g pm2
+
+      - name: Start project with PM2
+        run: |
+          # Stop existing process if any
+          pm2 delete portfolio || true
+          # Start project
+          pm2 start npm --name portfolio -- start
+          # Save PM2 configuration for auto-restart
+          pm2 save
+
+      - name: Find Nginx configuration directory
+        id: nginx-config
+        run: |
+          # Determine the appropriate config path
+          if [ -d "/etc/nginx/conf.d" ]; then
+            echo "CONFIG_PATH=/etc/nginx/conf.d/portfolio.conf" >> $GITHUB_ENV
+          elif [ -d "/etc/nginx/sites-available" ]; then
+            echo "CONFIG_PATH=/etc/nginx/sites-available/portfolio" >> $GITHUB_ENV
+          else
+            sudo mkdir -p /etc/nginx/conf.d
+            echo "CONFIG_PATH=/etc/nginx/conf.d/portfolio.conf" >> $GITHUB_ENV
+          fi
+
+      - name: Configure Nginx for portfolio
+        run: |
+          # Copy nginx.conf from repo to server
+          sudo cp ./nginx.conf $CONFIG_PATH
+          
+          # If using sites-available, create symlink
+          if [[ "$CONFIG_PATH" == "/etc/nginx/sites-available/portfolio" ]]; then
+            sudo ln -sf /etc/nginx/sites-available/portfolio /etc/nginx/sites-enabled/portfolio
+          fi
+          
+          # Test and reload Nginx
+          sudo nginx -t && sudo systemctl reload nginx || sudo service nginx reload || sudo nginx -s reload
