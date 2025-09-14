@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
- deploy:
+  deploy:
     runs-on: self-hosted
 
     strategy:
@@ -39,6 +39,17 @@ jobs:
       - name: Build project (if using React/Next.js)
         run: npm run build
 
+      # ------------------------------
+      # DEPLOY TO PERSISTENT FOLDER
+      # ------------------------------
+      - name: Deploy build to persistent folder
+        run: |
+          mkdir -p ~/portfolio-website
+          # Remove old files in persistent folder
+          rm -rf ~/portfolio-website/*
+          # Copy current build
+          cp -r ./* ~/portfolio-website/
+
       - name: Install PM2 globally if not available
         run: |
           which pm2 || npm install -g pm2
@@ -47,15 +58,14 @@ jobs:
         run: |
           # Stop existing process if any
           pm2 delete portfolio || true
-          # Start project
-          pm2 start npm --name portfolio -- start
+          # Start project from persistent folder
+          pm2 start npm --name portfolio --prefix ~/portfolio-website -- start
           # Save PM2 configuration for auto-restart
           pm2 save
 
       - name: Find Nginx configuration directory
         id: nginx-config
         run: |
-          # Determine the appropriate config path
           if [ -d "/etc/nginx/conf.d" ]; then
             echo "CONFIG_PATH=/etc/nginx/conf.d/portfolio.conf" >> $GITHUB_ENV
           elif [ -d "/etc/nginx/sites-available" ]; then
@@ -67,30 +77,19 @@ jobs:
 
       - name: Configure Nginx for portfolio
         run: |
-          # Copy nginx.conf from repo to server
           sudo cp ./nginx.conf $CONFIG_PATH
-          
-          # If using sites-available, create symlink
           if [[ "$CONFIG_PATH" == "/etc/nginx/sites-available/portfolio" ]]; then
             sudo ln -sf /etc/nginx/sites-available/portfolio /etc/nginx/sites-enabled/portfolio
           fi
-          
-          # Test and reload Nginx
           sudo nginx -t && sudo systemctl reload nginx || sudo service nginx reload || sudo nginx -s reload
 
-
-      # ------------------------------
-      # CLEANUP ARTIFACTS
-      # ------------------------------
- cleanup:                  # <-- Add this after the deploy job
+  cleanup:
     runs-on: self-hosted
-    needs: deploy           # <-- ensures it runs only after deploy finishes
+    needs: deploy
     steps:
-      - name: Cleanup portfolio runner artifacts
+      - name: Cleanup runner artifacts
         run: |
           echo "Cleaning _work directory for portfolio runner..."
           rm -rf ~/actions-runner-portfolio/_work/*
-          cd ~
           npm cache clean --force || true
           echo "Cleanup complete."
-
