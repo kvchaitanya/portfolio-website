@@ -49,7 +49,6 @@ jobs:
       - name: Deploy build to persistent folder
         run: |
           mkdir -p ~/portfolio-website
-          # Remove old files but keep .pm2 configuration
           rsync -a --delete --exclude='.pm2' ./ ~/portfolio-website/
 
       # ------------------------------
@@ -62,11 +61,8 @@ jobs:
       - name: Start project with PM2
         run: |
           cd ~/portfolio-website
-          # Stop existing process if any
           pm2 delete portfolio || true
-          # Start project using PORT from .env
           pm2 start npm --name portfolio -- start
-          # Save PM2 config and setup auto-restart on boot
           pm2 save
           pm2 startup systemd -u ubuntu --hp /home/ubuntu || true
 
@@ -78,7 +74,6 @@ jobs:
           PORT="${{ secrets.PORT }}"
           CONFIG_FILE="/tmp/portfolio-nginx.conf"
 
-          # Generate Nginx config dynamically with PORT
           cat > $CONFIG_FILE <<EOL
 # HTTP redirect
 server {
@@ -113,7 +108,6 @@ server {
 }
 EOL
 
-          # Determine where to copy
           if [ -d "/etc/nginx/conf.d" ]; then
             sudo cp $CONFIG_FILE /etc/nginx/conf.d/portfolio.conf
           elif [ -d "/etc/nginx/sites-available" ]; then
@@ -124,12 +118,8 @@ EOL
             sudo cp $CONFIG_FILE /etc/nginx/conf.d/portfolio.conf
           fi
 
-          # Test and reload Nginx
           sudo nginx -t && sudo systemctl reload nginx || sudo service nginx reload || sudo nginx -s reload
 
-  # ------------------------------
-  # CLEANUP ARTIFACTS
-  # ------------------------------
   cleanup:
     runs-on: self-hosted
     needs: deploy
