@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} overflow-x-hidden`}>
         <Navigation />
-        {children}
+        <div className="pt-16">{children}</div>
         <Analytics />
       </body>
     </html>

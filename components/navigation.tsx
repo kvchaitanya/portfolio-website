@@ -8,36 +8,7 @@ import { Menu, X } from "lucide-react"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState("home")
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["home", "about", "projects", "skills", "experience", "contact"]
-      const scrollPosition = window.scrollY + 100
-
-      for (const section of sections) {
-        const element = document.getElementById(section)
-        if (element) {
-          const { offsetTop, offsetHeight } = element
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
-          }
-        }
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-    setIsOpen(false)
-  }
+  // ...existing code...
 
 
   const navLinks = [
@@ -49,12 +20,14 @@ export function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/50">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="font-light text-lg text-foreground">{"DS"}</div>
+          <Link href="/" className="font-light text-lg text-foreground transition-colors" prefetch={false}>
+            Hi! I'm Chaitanya
+          </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-12">
+          <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               link.external ? (
                 <a
@@ -62,7 +35,7 @@ export function Navigation() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-light transition-colors hover:text-foreground text-muted-foreground"
+                  className="text-sm font-light text-foreground transition-colors hover:text-muted-foreground"
                 >
                   {link.label}
                 </a>
@@ -70,7 +43,7 @@ export function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-light transition-colors hover:text-foreground text-muted-foreground"
+                  className="text-sm font-light text-foreground transition-colors hover:text-muted-foreground"
                   onClick={() => setIsOpen(false)}
                   prefetch={false}
                 >
