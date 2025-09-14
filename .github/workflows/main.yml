@@ -77,3 +77,15 @@ jobs:
           
           # Test and reload Nginx
           sudo nginx -t && sudo systemctl reload nginx || sudo service nginx reload || sudo nginx -s reload
+
+
+      # ------------------------------
+      # CLEANUP ARTIFACTS
+      # ------------------------------
+      - name: Cleanup portfolio runner artifacts
+        run: |
+          echo "Cleaning _work directory for portfolio runner..."
+          rm -rf ~/actions-runner-portfolio/_work/*
+          npm cache clean --force
+          echo "Cleanup complete."
+
