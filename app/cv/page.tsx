@@ -1,15 +1,15 @@
 export default function CV() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <header className="border-b border-border/40">
-        <div className="max-w-7xl mx-auto px-8 py-6">
+      <header className="border-b border-border/40 sticky top-0 bg-background/80 backdrop-blur-md z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-6">
           <nav className="flex items-center justify-between">
-            <div className="text-lg font-medium">
+            <div className="text-base lg:text-lg font-medium">
               <a href="/" className="hover:text-muted-foreground transition-colors">
                 Hi! I'm Chaitanya
               </a>
             </div>
-            <div className="flex items-center space-x-8 text-sm">
+            <div className="hidden md:flex items-center space-x-6 lg:space-x-8 text-sm">
               <a href="/publications" className="hover:text-muted-foreground transition-colors">
                 Publications & Talks
               </a>
@@ -23,20 +23,28 @@ export default function CV() {
                 Meet Me
               </a>
             </div>
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <button className="text-foreground hover:text-muted-foreground">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
           </nav>
         </div>
       </header>
 
-      <div className="max-w-6xl mx-auto px-8 py-16">
-        <div className="mb-8 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16">
+        <div className="mb-6 lg:mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-medium mb-4">Curriculum Vitae</h1>
+            <h1 className="text-2xl lg:text-3xl font-medium mb-2 lg:mb-4">Curriculum Vitae</h1>
             <p className="text-muted-foreground">Data Analyst & Machine Learning Engineer</p>
           </div>
           <a
             href="https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Chaitanya-Resume.pdf"
             download="Venkata_Chaitanya_CV.pdf"
-            className="px-6 py-3 bg-foreground text-background text-sm font-medium rounded-lg hover:bg-foreground/90 transition-colors flex items-center gap-2"
+            className="px-4 lg:px-6 py-2 lg:py-3 bg-foreground text-background text-xs lg:text-sm font-medium rounded-lg hover:bg-foreground/90 transition-colors flex items-center gap-2 w-fit"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -46,7 +54,7 @@ export default function CV() {
         </div>
 
         {/* PDF Viewer */}
-        <div className="w-full h-screen bg-white rounded-lg shadow-lg border border-border overflow-hidden">
+        <div className="w-full h-[60vh] lg:h-screen bg-white rounded-lg shadow-lg border border-border overflow-hidden">
           <iframe
             src="https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Chaitanya-Resume.pdf"
             className="w-full h-full"

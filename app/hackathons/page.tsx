@@ -2,14 +2,14 @@ export default function Hackathons() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border/40 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-8 py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-6">
           <nav className="flex items-center justify-between">
-            <div className="text-lg font-medium">
+            <div className="text-base lg:text-lg font-medium">
               <a href="/" className="hover:text-muted-foreground transition-colors">
                 Hi! I'm Chaitanya
               </a>
             </div>
-            <div className="flex items-center space-x-8 text-sm">
+            <div className="hidden md:flex items-center space-x-6 lg:space-x-8 text-sm">
               <a href="/publications" className="hover:text-muted-foreground transition-colors">
                 Publications & Talks
               </a>
@@ -19,23 +19,31 @@ export default function Hackathons() {
               <a href="/cv" className="hover:text-muted-foreground transition-colors">
                 CV
               </a>
-              <a href="mailto:alex.chen@example.com" className="hover:text-muted-foreground transition-colors">
-                Contact
+              <a href="https://calendly.com/chaitanya4599/30min" target="_blank" rel="noopener noreferrer" className="hover:text-muted-foreground transition-colors">
+                Meet Me
               </a>
+            </div>
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <button className="text-foreground hover:text-muted-foreground">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
             </div>
           </nav>
         </div>
       </header>
 
       {/* Main content with top padding for fixed header */}
-      <div className="pt-24">
+      <div className="pt-20 lg:pt-24">
         {/* Featured Project - WolframWallStreet */}
         <div className="bg-card/30 border-b border-border/40">
-          <div className="max-w-7xl mx-auto px-8 py-8">
-            <div className="mb-8">
-              <h1 className="text-2xl font-medium mb-2">Featured Hackathon Project</h1>
-              <h2 className="text-3xl font-bold text-foreground mb-4">WolframWallStreet</h2>
-              <p className="text-muted-foreground max-w-3xl leading-relaxed">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
+            <div className="mb-6 lg:mb-8">
+              <h1 className="text-xl lg:text-2xl font-medium mb-2">Featured Hackathon Project</h1>
+              <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-3 lg:mb-4">WolframWallStreet</h2>
+              <p className="text-sm lg:text-base text-muted-foreground max-w-3xl leading-relaxed">
                 A cutting-edge ML Training and Financial Simulation tool tailored for stock market trading, 
                 with a special focus on accurately predicting the performance of automotive industry stocks.
               </p>
