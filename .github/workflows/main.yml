@@ -38,6 +38,7 @@ jobs:
         run: |
           touch .env
           echo "${{ secrets.PROD_PORTFOLIO_ENV }}" > .env
+          echo "PORT=${{ secrets.PORT }}" >> .env
 
       - name: Build project (React/Next.js)
         run: npm run build
@@ -67,6 +68,16 @@ jobs:
           pm2 start npm --name portfolio -- start
           # Save PM2 configuration for auto-restart
           pm2 save
+          # Setup PM2 to start on system boot (run as current user)
+          pm2 startup systemd -u $USER --hp $HOME
+          
+      - name: Verify PM2 auto-startup configuration
+        run: |
+          # Ensure PM2 will resurrect processes on restart
+          pm2 resurrect
+          # Show PM2 status for verification
+          pm2 list
+          pm2 show portfolio
 
       # ------------------------------
       # NGINX CONFIGURATION
