@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy:
+ deploy:
     runs-on: self-hosted
 
     strategy:
@@ -82,10 +82,15 @@ jobs:
       # ------------------------------
       # CLEANUP ARTIFACTS
       # ------------------------------
+ cleanup:                  # <-- Add this after the deploy job
+    runs-on: self-hosted
+    needs: deploy           # <-- ensures it runs only after deploy finishes
+    steps:
       - name: Cleanup portfolio runner artifacts
         run: |
           echo "Cleaning _work directory for portfolio runner..."
           rm -rf ~/actions-runner-portfolio/_work/*
-          npm cache clean --force
+          cd ~
+          npm cache clean --force || true
           echo "Cleanup complete."
 
