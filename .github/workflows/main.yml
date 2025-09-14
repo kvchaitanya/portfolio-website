@@ -136,7 +136,7 @@ jobs:
           # Test and reload Nginx
           sudo nginx -t && sudo systemctl reload nginx || sudo service nginx reload || sudo nginx -s reload
 
-  # ------------------------------
+  # -----------------------------
   # CLEANUP ARTIFACTS
   # ------------------------------
   cleanup:
