@@ -22,14 +22,27 @@ export default function CV() {
         </div>
 
         {/* PDF Viewer */}
-        <div className="w-full h-[60vh] lg:h-screen bg-white rounded-lg shadow-lg border border-border flex justify-center items-stretch">
-          <iframe
-            src="https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Chaitanya-Resume.pdf"
-            className="w-full h-full" 
-            title="Venkata Chaitanya CV"
-            style={{ border: 'none', width: '100%', height: '100%', objectFit: 'contain' }}
-            scrolling="no"
-          />
+        <div className="w-full h-[60vh] lg:h-screen bg-white rounded-lg shadow-lg border border-border overflow-y-auto overflow-x-hidden flex justify-center items-stretch">
+          {/* Mobile: Google Docs viewer for fit-to-width */}
+          <div className="block lg:hidden w-full h-full">
+            <iframe
+              src={`https://docs.google.com/gview?url=https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Chaitanya-Resume.pdf&embedded=true`}
+              className="w-full h-full"
+              title="Venkata Chaitanya CV Mobile"
+              style={{ border: 'none', width: '100%', height: '100%' }}
+              scrolling="yes"
+            />
+          </div>
+          {/* Desktop: Default PDF iframe */}
+          <div className="hidden lg:block w-full h-full">
+            <iframe
+              src="https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Chaitanya-Resume.pdf"
+              className="w-full h-full"
+              title="Venkata Chaitanya CV Desktop"
+              style={{ border: 'none', width: '100%', height: '100%' }}
+              scrolling="yes"
+            />
+          </div>
         </div>
 
         {/* Fallback message */}
