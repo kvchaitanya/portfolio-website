@@ -7,8 +7,8 @@ import { Navigation } from '@/components/navigation'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'Chaitanya Portfolio',
+  description: 'Portfolio of Venkata Chaitanya Kanakamedala - Data Analyst & Machine Learning Engineer',
   generator: 'v0.app',
 }
 
