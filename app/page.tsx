@@ -54,6 +54,9 @@ export default function Home() {
           <nav className="flex items-center justify-between">
             <div className="text-base lg:text-lg font-medium">Hi! I'm Chaitanya</div>
             <div className="hidden md:flex items-center space-x-6 lg:space-x-8 text-sm">
+              <a href="/" className="hover:text-muted-foreground transition-colors">
+                Home
+              </a>
               <a href="/publications" className="hover:text-muted-foreground transition-colors">
                 Publications & Talks
               </a>
@@ -90,6 +93,13 @@ export default function Home() {
           {isMobileMenuOpen && (
             <div className="md:hidden">
               <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-t border-border/40">
+                <a 
+                  href="/" 
+                  className="block px-3 py-2 text-base font-medium hover:text-muted-foreground transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Home
+                </a>
                 <a 
                   href="/publications" 
                   className="block px-3 py-2 text-base font-medium hover:text-muted-foreground transition-colors"

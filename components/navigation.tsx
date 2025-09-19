@@ -12,6 +12,7 @@ export function Navigation() {
 
 
   const navLinks = [
+    { href: "/", label: "Home" },
     { href: "/publications", label: "Publications & Talks" },
     { href: "/hackathons", label: "Hackathons" },
     { href: "/cv", label: "CV" },
