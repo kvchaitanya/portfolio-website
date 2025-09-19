@@ -1,3 +1,5 @@
+import { S3_URLS, DOWNLOAD_NAMES } from '@/lib/constants'
+
 export default function CV() {
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -10,8 +12,8 @@ export default function CV() {
             <p className="text-muted-foreground">Data Analyst & Machine Learning Engineer</p>
           </div>
           <a
-            href="https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Chaitanya-Resume.pdf"
-            download="Venkata_Chaitanya_CV.pdf"
+            href={S3_URLS.RESUME_PDF}
+            download={DOWNLOAD_NAMES.RESUME}
             className="px-4 lg:px-6 py-2 lg:py-3 bg-foreground text-background text-xs lg:text-sm font-medium rounded-lg hover:bg-foreground/90 transition-colors flex items-center gap-2 w-fit"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -26,7 +28,7 @@ export default function CV() {
           {/* Mobile: Google Docs viewer for fit-to-width */}
           <div className="block lg:hidden w-full h-full">
             <iframe
-              src={`https://docs.google.com/gview?url=https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Chaitanya-Resume.pdf&embedded=true`}
+              src={`https://docs.google.com/gview?url=${S3_URLS.RESUME_PDF}&embedded=true`}
               className="w-full h-full"
               title="Venkata Chaitanya CV Mobile"
               style={{ border: 'none', width: '100%', height: '100%' }}
@@ -36,7 +38,7 @@ export default function CV() {
           {/* Desktop: Default PDF iframe */}
           <div className="hidden lg:block w-full h-full">
             <iframe
-              src="https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Chaitanya-Resume.pdf"
+              src={S3_URLS.RESUME_PDF}
               className="w-full h-full"
               title="Venkata Chaitanya CV Desktop"
               style={{ border: 'none', width: '100%', height: '100%' }}
@@ -47,7 +49,7 @@ export default function CV() {
 
         {/* Fallback message */}
         <div className="mt-4 text-center text-sm text-muted-foreground">
-          <p>Can't see the PDF? <a href="https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Chaitanya-Resume.pdf" className="text-foreground hover:underline" download="Venkata_Chaitanya_CV.pdf">Download it directly</a></p>
+          <p>Can't see the PDF? <a href={S3_URLS.RESUME_PDF} className="text-foreground hover:underline" download={DOWNLOAD_NAMES.RESUME}>Download it directly</a></p>
         </div>
       </div>
     </main>

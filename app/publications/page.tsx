@@ -1,3 +1,5 @@
+import { S3_URLS, EXTERNAL_URLS } from '@/lib/constants'
+
 export default function Publications() {
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -28,7 +30,7 @@ export default function Publications() {
                 </p>
                
                 <div className="flex gap-4 text-sm">
-                  <a href="https://www.tandfonline.com/doi/full/10.1080/09537325.2025.2450662" className="text-blue-500 hover:text-blue-400">
+                  <a href={EXTERNAL_URLS.HANDICRAFT_REVIEWS_PAPER} className="text-blue-500 hover:text-blue-400">
                     Paper
                   </a>
         
@@ -53,7 +55,7 @@ export default function Publications() {
                   performance on VQA, image captioning, and cross-modal retrieval benchmarks.
                 </p> */}
                 <div className="flex gap-4 text-sm">
-                  <a href="https://ieeexplore.ieee.org/abstract/document/10080169" className="text-blue-500 hover:text-blue-400">
+                  <a href={EXTERNAL_URLS.SENTIMENT_ANALYSIS_PAPER} className="text-blue-500 hover:text-blue-400">
                     Paper
                   </a>
                   {/* <a href="#" className="text-blue-500 hover:text-blue-400">
@@ -76,7 +78,7 @@ export default function Publications() {
                 </p>
                
                 <div className="flex gap-4 text-sm">
-                  <a href="https://ieeexplore.ieee.org/abstract/document/10331418" className="text-blue-500 hover:text-blue-400">
+                  <a href={EXTERNAL_URLS.ELECTRIC_ARC_FURNACE_PAPER} className="text-blue-500 hover:text-blue-400">
                     Paper
                   </a>
         
@@ -101,7 +103,7 @@ export default function Publications() {
                   deployed to optimize municipal resource allocation.
                 </p>
                 <div className="flex gap-4 text-sm mt-2">
-                  <a href="https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Urban+Transitions+2024.pdf" className="text-blue-500 hover:text-blue-400">
+                  <a href={S3_URLS.URBAN_TRANSITIONS_SLIDES} className="text-blue-500 hover:text-blue-400">
                     📄 Slides
                   </a>
                 </div>
@@ -114,7 +116,7 @@ export default function Publications() {
                   Presented Ag Corp: Advancing Agriculture Communication in Virginia, a secure web platform integrating centralized information, real-time updates to deliver support for producers.
                 </p>
                 <div className="flex gap-4 text-sm mt-2">
-                  <a href="https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Agtech-Final-1.pdf" className="text-blue-500 hover:text-blue-400">
+                  <a href={S3_URLS.AGTECH_SLIDES} className="text-blue-500 hover:text-blue-400">
                     📄 Slides
                   </a>
                 </div>
@@ -129,7 +131,7 @@ export default function Publications() {
                   solutions with direct impact on policy and industry adoption.
                 </p>
                 <div className="flex gap-4 text-sm mt-2">
-                  <a href="https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/AI-Expo-Slides-compressed.pdf" className="text-blue-500 hover:text-blue-400">
+                  <a href={S3_URLS.AI_EXPO_SLIDES} className="text-blue-500 hover:text-blue-400">
                     📄 Slides
                   </a>
                 </div>
