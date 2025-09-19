@@ -1,11 +1,23 @@
 import { S3_URLS, EXTERNAL_URLS } from '@/lib/constants'
+import Link from 'next/link'
 
 export default function Publications() {
   return (
     <main className="min-h-screen bg-background text-foreground">
 
-
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16">
+        {/* Navigation Header */}
+        <div className="mb-8 lg:mb-12">
+          <Link 
+            href="/" 
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-foreground hover:text-muted-foreground transition-colors border border-border rounded-lg hover:bg-muted/50"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Home
+          </Link>
+        </div>
         {/* <div className="mb-12">
           <h1 className="text-3xl font-medium mb-4">Publications & Talks</h1>
           <p className="text-muted-foreground">
