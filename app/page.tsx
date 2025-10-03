@@ -142,14 +142,18 @@ export default function Home() {
           <div className="lg:sticky lg:top-32 lg:h-fit space-y-6 lg:space-y-8">
             <div>
               <h1 className="text-2xl lg:text-3xl font-medium mb-2">Venkata Chaitanya</h1>
-              <p className="text-muted-foreground mb-4 lg:mb-6">Data Analyst & Machine Learning Engineer</p>
+              <p className="text-muted-foreground mb-4 lg:mb-6">Software Development Engineer</p>
 
               <p className="text-sm leading-relaxed mb-6 lg:mb-8 max-w-md">
-                I build AI-powered tools that simplify workflows, enhance decision-making, and automate complex tasks. My work spans machine learning, NLP, and web automation, with a focus on building practical, real-world AI applications. I love exploring new ways AI can improve businesses and everyday life.
+                {/* I build AI-powered tools that simplify workflows, enhance decision-making, and automate complex tasks. My work spans machine learning, NLP, and web automation, with a focus on building practical, real-world AI applications. I love exploring new ways AI can improve businesses and everyday life. */}
+                I build intelligent, automation-first solutions that improve performance, scalability, and security in modern software systems. My experience spans Golang, Python, and cloud-native development (AWS, GCP, Azure), with a strong focus on designing reliable distributed applications and automating complex workflows.
+                
               </p>
 
               <p className="text-sm leading-relaxed max-w-md">
-                I currently work at TAREC (Virginia Tech), helping organizations leverage data for better decision-making. In my spare time, I experiment with generative AI, develop personal assistant bots, and contribute to open-source projects.
+                {/* I currently work at TAREC (Virginia Tech), helping organizations leverage data for better decision-making. In my spare time, I experiment with generative AI, develop personal assistant bots, and contribute to open-source projects. */}
+                At Virginia Tech, I help organizations leverage data to drive smarter decisions by developing end-to-end systems that integrate machine learning, cloud services, and infrastructure automation. My work often involves building pipelines, enhancing observability, and ensuring resilient deployments across hybrid and multi-cloud environments.
+                Outside of work, I explore generative AI, cloud automation tools, and open-source contributions, always seeking new ways to blend AI with secure, scalable software engineering practices.  
               </p>
             </div>
 
@@ -294,7 +298,8 @@ export default function Home() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <span className="inline-block px-2 lg:px-3 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full mb-2">
-                          Data Science
+                          {/* Data Science */}
+                          Web Development
                         </span>
                         <h3 className="font-semibold text-base lg:text-lg mb-2 group-hover/item:text-blue-600 transition-colors leading-tight">
                           DC Crime Insights Web Application

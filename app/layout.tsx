@@ -8,7 +8,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Chaitanya Portfolio',
-  description: 'Portfolio of Venkata Chaitanya Kanakamedala - Data Analyst & Machine Learning Engineer',
+  description: 'Portfolio of Venkata Chaitanya Kanakamedala - Software Development Engineer',
   generator: 'v0.app',
 }
 

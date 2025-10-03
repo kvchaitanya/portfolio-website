@@ -9,7 +9,7 @@ export default function CV() {
         <div className="mb-6 lg:mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h1 className="text-2xl lg:text-3xl font-medium mb-2 lg:mb-4">Curriculum Vitae</h1>
-            <p className="text-muted-foreground">Data Analyst & Machine Learning Engineer</p>
+            <p className="text-muted-foreground">Software Development Engineer</p>
           </div>
           <a
             href={S3_URLS.RESUME_PDF}

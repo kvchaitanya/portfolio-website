@@ -1,6 +1,6 @@
 // S3 URLs and other constants
 export const S3_URLS = {
-  RESUME_PDF: 'https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Resume.pdf',
+  RESUME_PDF: 'https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Resume-Chaitanya+.pdf',
   
   // Publication slides
   URBAN_TRANSITIONS_SLIDES: 'https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Urban+Transitions+2024.pdf',
@@ -27,5 +27,5 @@ export const EXTERNAL_URLS = {
 // Other constants
 export const SITE_CONFIG = {
   AUTHOR: 'Venkata Chaitanya Kanakamedala',
-  TITLE: 'Data Analyst & Machine Learning Engineer',
+  TITLE: 'Software Development Engineer',
 } as const;
