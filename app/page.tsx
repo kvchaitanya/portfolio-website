@@ -200,13 +200,13 @@ export default function Home() {
 
             <nav className="space-y-3 hidden lg:block">
               <div className="text-sm">
-                <a href="#projects" className="nav-link text-black hover:text-black transition-colors flex items-center gap-3" data-section="projects">
+                <a href="#key-insights" className="nav-link text-black hover:text-black transition-colors flex items-center gap-3" data-section="key-insights">
                   <span className="w-6 h-6 rounded-full border border-border flex items-center justify-center text-xs nav-number">1</span>
-                  Insights (Coming Soon)
+                  Insights 
                 </a>
               </div>
               <div className="text-sm">
-                <a href="#experience" className="nav-link text-muted-foreground hover:text-black transition-colors flex items-center gap-3" data-section="experience">
+                <a href="#projects" className="nav-link text-muted-foreground hover:text-black transition-colors flex items-center gap-3" data-section="projects">
                   <span className="w-6 h-6 rounded-full border border-border flex items-center justify-center text-xs nav-number">2</span>
                   Projects
                 </a>
