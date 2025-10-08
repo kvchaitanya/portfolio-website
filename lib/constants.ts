@@ -7,6 +7,9 @@ export const S3_URLS = {
   AGTECH_SLIDES: 'https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Agtech-Final-1.pdf',
   AI_EXPO_SLIDES: 'https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/AI-Expo-Slides-compressed.pdf',
   
+  // Key Insights
+  MLOPS_PDF: 'https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/AI+with+MLOPS.pdf',
+  
   // Add more S3 URLs here as needed
   // PROFILE_IMAGE: 'https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/profile.jpg',
 } as const;

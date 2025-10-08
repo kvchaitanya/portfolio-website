@@ -202,13 +202,13 @@ export default function Home() {
               <div className="text-sm">
                 <a href="#projects" className="nav-link text-black hover:text-black transition-colors flex items-center gap-3" data-section="projects">
                   <span className="w-6 h-6 rounded-full border border-border flex items-center justify-center text-xs nav-number">1</span>
-                  Projects
+                  Insights (Coming Soon)
                 </a>
               </div>
               <div className="text-sm">
                 <a href="#experience" className="nav-link text-muted-foreground hover:text-black transition-colors flex items-center gap-3" data-section="experience">
                   <span className="w-6 h-6 rounded-full border border-border flex items-center justify-center text-xs nav-number">2</span>
-                  Insights (Coming Soon)
+                  Projects
                 </a>
               </div>
             </nav>
@@ -280,6 +280,36 @@ export default function Home() {
                 </div>
               </div>
             </section> */}
+
+            {/* Key Insights Section */}
+            <section id="key-insights">
+              <h2 className="text-lg lg:text-xl font-medium mb-6 lg:mb-8">Key Insights</h2>
+              
+              <div className="space-y-4 lg:space-y-6">
+                <a href="https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/AI+with+MLOPS.pdf" target="_blank" rel="noopener noreferrer" className="group/item cursor-pointer block">
+                  <div className="bg-card rounded-lg p-4 lg:p-6 border border-border transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-purple-200 hover:z-10 relative">
+                    <div className="flex items-start gap-3 lg:gap-4 mb-3 lg:mb-4">
+                      <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex-shrink-0 flex items-center justify-center">
+                        <svg className="w-6 h-6 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                        </svg>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <span className="inline-block px-2 lg:px-3 py-1 text-xs font-medium bg-purple-100 text-purple-800 rounded-full mb-2">
+                          <span className="font-bold">MLOPS</span>
+                        </span>
+                        <h3 className="font-semibold text-base lg:text-lg mb-2 group-hover/item:text-purple-600 transition-colors leading-tight">
+                          From Lab to Launch: Enabling Continuous AI with MLOps
+                        </h3>
+                      </div>
+                    </div>
+                    <p className="text-xs lg:text-sm text-muted-foreground leading-relaxed">
+                      Explore the journey of transforming machine learning models from experimental notebooks to production-ready systems. This insight covers the complete MLOps pipeline, including model versioning, automated training, continuous deployment, and monitoring strategies that ensure reliable AI systems at scale.
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </section>
 
             <section id="projects">
               <h2 className="text-lg lg:text-xl font-medium mb-6 lg:mb-8">Projects</h2>
