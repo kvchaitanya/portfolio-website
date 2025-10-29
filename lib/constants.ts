@@ -1,6 +1,6 @@
 // S3 URLs and other constants
 export const S3_URLS = {
-  RESUME_PDF: 'https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Resume-Chaitanya+.pdf',
+  RESUME_PDF: 'https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Copy+of+AI+with+MLOPS.pdf',
   
   // Publication slides
   URBAN_TRANSITIONS_SLIDES: 'https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/Urban+Transitions+2024.pdf',
