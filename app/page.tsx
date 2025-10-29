@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { S3_URLS } from '@/lib/constants'
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -286,7 +287,7 @@ export default function Home() {
               <h2 className="text-lg lg:text-xl font-medium mb-6 lg:mb-8">Key Insights</h2>
               
               <div className="space-y-4 lg:space-y-6">
-                <a href="https://cerbq-portfolio-pdfs.s3.us-east-2.amazonaws.com/AI+with+MLOPS.pdf" target="_blank" rel="noopener noreferrer" className="group/item cursor-pointer block">
+                <a href={S3_URLS.MLOPS_PDF} target="_blank" rel="noopener noreferrer" className="group/item cursor-pointer block">
                   <div className="bg-card rounded-lg p-4 lg:p-6 border border-border transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-purple-200 hover:z-10 relative">
                     <div className="flex items-start gap-3 lg:gap-4 mb-3 lg:mb-4">
                       <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex-shrink-0 flex items-center justify-center">
